@@ -13,5 +13,7 @@ export const CorosResponse = <T extends z.ZodType>(dataSchema: T) =>
     data: dataSchema,
   });
 
-const CorosResponseWithData = CorosResponse(z.record(z.string(), z.unknown()));
+const CorosResponseWithData = CorosResponse(
+  z.union([z.string(), z.record(z.string(), z.unknown()), z.array(z.unknown()), z.undefined()]).optional(),
+);
 export type CorosResponseWithData = z.infer<typeof CorosResponseWithData>;

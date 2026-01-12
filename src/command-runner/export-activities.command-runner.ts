@@ -89,7 +89,7 @@ export class ExportActivitiesCommandRunner extends CommandRunner {
     flags: '--exportType <fileType>',
     choices: FileTypeKeys,
     description: 'Export data type',
-    defaultValue: DefaultFileType satisfies FileTypeFlag,
+    defaultValue: DefaultFileType.key,
     required: false,
   })
   parseFileType(fileType: string): FileTypeFlag {
@@ -105,7 +105,7 @@ export class ExportActivitiesCommandRunner extends CommandRunner {
     flags: '--exportSportTypes <sportTypes>',
     choices: SportTypeKeys,
     description: 'Export sport types',
-    defaultValue: [DefaultSportType.value] satisfies SportTypesFlag,
+    defaultValue: DefaultSportType.key,
     required: false,
   })
   parseSportType(sportTypes: string): SportTypesFlag {
