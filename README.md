@@ -42,7 +42,7 @@ pnpm nest start -- export-activities --exportType gpx --exportSportTypes walk,ru
 
 ## Export Training Schedule
 
-Exports your training calendar schedule for today through the next 7 days into a JSON file.
+Exports your training calendar schedule for today through the next 7 days into an ICS file.
 
 **Usage:**
 
@@ -50,7 +50,7 @@ Exports your training calendar schedule for today through the next 7 days into a
 pnpm nest start -- export-training-schedule -o ~/Downloads
 ```
 
-This creates a file named `training-schedule-YYYY-MM-DD-to-YYYY-MM-DD.json` in the output directory.
+This creates a file named `training-schedule-YYYY-MM-DD-to-YYYY-MM-DD.ics` in the output directory.
 
 ## Import Training Plans from CSV
 
