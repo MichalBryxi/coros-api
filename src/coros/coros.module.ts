@@ -11,6 +11,7 @@ import { DeleteTrainingPlanRequest } from './training-plan/delete-training-plan.
 import { GetTrainingPlanDetailRequest } from './training-plan/get-training-plan-detail.request';
 import { QueryTrainingPlansRequest } from './training-plan/query-training-plans.request';
 import { UpdateTrainingPlanRequest } from './training-plan/update-training-plan.request';
+import { QueryTrainingScheduleRequest } from './training-schedule/query-training-schedule.request';
 import { CreateWorkoutRequest } from './workout/create-workout.request';
 
 @Module({
@@ -28,6 +29,7 @@ import { CreateWorkoutRequest } from './workout/create-workout.request';
     GetTrainingPlanDetailRequest,
     QueryTrainingPlansRequest,
     UpdateTrainingPlanRequest,
+    QueryTrainingScheduleRequest,
   ],
   exports: [CorosAPI],
 })

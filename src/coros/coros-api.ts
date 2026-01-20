@@ -10,6 +10,7 @@ import type { QueryTrainingPlan } from './training-plan/query-training-plans.req
 import { QueryTrainingPlansRequest } from './training-plan/query-training-plans.request';
 import type { TrainingPlan } from './training-plan/training-plan-types';
 import { UpdateTrainingPlanRequest } from './training-plan/update-training-plan.request';
+import { QueryTrainingScheduleRequest } from './training-schedule/query-training-schedule.request';
 import { CreateWorkoutRequest } from './workout/create-workout.request';
 import type { Workout } from './workout/workout-types';
 
@@ -24,6 +25,7 @@ export class CorosAPI {
   private readonly getTrainingPlanDetailCommand: GetTrainingPlanDetailRequest;
   private readonly queryTrainingPlansCommand: QueryTrainingPlansRequest;
   private readonly updateTrainingPlanCommand: UpdateTrainingPlanRequest;
+  private readonly queryTrainingScheduleCommand: QueryTrainingScheduleRequest;
 
   constructor(
     loginCommand: LoginRequest,
@@ -35,6 +37,7 @@ export class CorosAPI {
     getTrainingPlanDetailCommand: GetTrainingPlanDetailRequest,
     queryTrainingPlansCommand: QueryTrainingPlansRequest,
     updateTrainingPlanCommand: UpdateTrainingPlanRequest,
+    queryTrainingScheduleCommand: QueryTrainingScheduleRequest,
   ) {
     this.downloadActivityDetailCommand = downloadActivityDetailCommand;
     this.queryActivitiesCommand = queryActivitiesCommand;
@@ -45,6 +48,7 @@ export class CorosAPI {
     this.getTrainingPlanDetailCommand = getTrainingPlanDetailCommand;
     this.queryTrainingPlansCommand = queryTrainingPlansCommand;
     this.updateTrainingPlanCommand = updateTrainingPlanCommand;
+    this.queryTrainingScheduleCommand = queryTrainingScheduleCommand;
   }
 
   async login() {
@@ -114,6 +118,22 @@ export class CorosAPI {
       statusList: input?.statusList ?? [0],
       startNo: input?.startNo ?? 0,
       limitSize: input?.limitSize ?? 10,
+    });
+  }
+
+  async queryTrainingSchedule({
+    startDate,
+    endDate,
+    supportRestExercise = 1,
+  }: {
+    startDate: Date;
+    endDate: Date;
+    supportRestExercise?: number;
+  }) {
+    return await this.queryTrainingScheduleCommand.run({
+      startDate,
+      endDate,
+      supportRestExercise,
     });
   }
 
